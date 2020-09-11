@@ -16,4 +16,14 @@ const argv = yargs
 
 const address = argv.address;
 
-getLocation(address);
+const main = async () => {
+  const location = await getLocation(address);
+  if (location) {
+    const weather = await getWeather(location.latitude, location.longitude);
+    console.log('temperature: ', weather.temperature);
+    console.log('summary: ', weather.summary);
+    console.log('icon: ', weather.temperature);
+  }
+};
+
+main();

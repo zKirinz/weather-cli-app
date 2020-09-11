@@ -29,7 +29,7 @@ const getLocation = async (address) => {
       longitude: res.data.results[0].geometry.location.lng,
     };
   } catch (err) {
-    if (err.code && err.code === 'ENOTFOUND')
+    if (err && err.code === 'ENOTFOUND')
       console.log('Cannot connect to Google API!');
   }
 };
